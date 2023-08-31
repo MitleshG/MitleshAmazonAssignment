@@ -40,18 +40,18 @@ public class ValidateAmazonTestClass extends BaseClass {
 
 	@Parameters("browser")
 	@BeforeClass
-	public void launchAmazon(String browser)  throws InterruptedException {
+	public void launchAmazon(String browser) throws InterruptedException {
 		if (browser.equalsIgnoreCase("chrome")) {
-            driver=new ChromeDriver();
-        } else if (browser.equalsIgnoreCase("edge")) {
-            driver=new EdgeDriver();
-        }else if (browser.equalsIgnoreCase("firefox")) {
-            driver=new FirefoxDriver();
-        }
+			driver = new ChromeDriver();
+		} else if (browser.equalsIgnoreCase("edge")) {
+			driver = new EdgeDriver();
+		} else if (browser.equalsIgnoreCase("firefox")) {
+			driver = new FirefoxDriver();
+		}
 		openApplication(driver);
-		driver.manage().window().maximize();  
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://www.amazon.in/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://www.amazon.in/");
 		home = new AmazonHomePage(driver);
 		productpage1 = new AmazonProductPage1(driver);
 		productpage2 = new AmazonProductPage2(driver);
@@ -104,7 +104,7 @@ public class ValidateAmazonTestClass extends BaseClass {
 		Reporter.log("Assert Text Samsung m32 128gb mobile", true);
 
 		productpage1.clickOnSamsungMobile1(driver);
-		UtilityClass.windowHandles(driver,1);
+		UtilityClass.windowHandles(driver, 1);
 
 		String exp3 = UtilityClass.readConfigProp("price");
 		String act3 = productpage1.getpriceasert();
@@ -128,12 +128,9 @@ public class ValidateAmazonTestClass extends BaseClass {
 
 		String act = productpage1.verifyName();
 		String exp = "Samsung Galaxy M34 5G (Midnight Blue, 6GB, 128GB Storage) | 120Hz sAMOLED Display | 50MP Triple No Shake Cam | 6000 mAh Battery | 12GB RAM with RAM Pl…";
-		if(act.contains(exp))
-		{
-		//Assert.assertEquals(act, exp);
-		Reporter.log(
-				"assert Samsung Galaxy M34 (Black, 6GB RAM, 128GB Storage mobile successfully validate",
-				true);
+		if (act.contains(exp)) {
+			// Assert.assertEquals(act, exp);
+			Reporter.log("assert Samsung Galaxy M34 (Black, 6GB RAM, 128GB Storage mobile successfully validate", true);
 		}
 		String actprice = productpage1.verifyPrice();
 		String expprice = "  18,999.00";
@@ -242,21 +239,17 @@ public class ValidateAmazonTestClass extends BaseClass {
 		String expprice = "  29,500.00";
 		Assert.assertEquals(actprice, expprice);
 		Reporter.log("price successfully validate", true);
-		
 		productpage3.emptyCart();
-
 	}
 
 	@AfterMethod
 	public void logoutToAmazon() throws InterruptedException {
 		home.movetoelement2(driver);
 		home.clickOnsignOutbutton2();
-
 	}
 
 	@AfterClass
-	public void closeBrowser() 
-	{
+	public void closeBrowser() {
 		driver.quit();
 	}
 
