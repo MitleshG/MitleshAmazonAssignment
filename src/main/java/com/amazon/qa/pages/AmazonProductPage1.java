@@ -16,9 +16,9 @@ public class AmazonProductPage1
 	@FindBy(xpath="//input[@id='nav-search-submit-button']")private WebElement submitbtn1;
 	@FindBy(xpath="//span[@class=\"a-color-state a-text-bold\"]")private WebElement textasert;
 
-	@FindBy(xpath="(//*[@class='a-section a-spacing-small a-spacing-top-small'])[5]//*[text()='(Refurbished) Samsung Galaxy M32 (Black, 6GB RAM, 128GB Storage']")
+	@FindBy(xpath="//div[@class=\"a-section a-spacing-small a-spacing-top-small\"]//descendant::span[contains(text(),\"Samsung Galaxy M34 5G (Midnight Blue, 6GB, 128GB Storage)\")]")
 	private WebElement samsungmobile1;
-	@FindBy(xpath="//div[@id=\"apex_desktop\"]/descendant::span[@class=\"a-price a-text-price a-size-medium apexPriceToPay\"]")
+	@FindBy(xpath="//div[@id=\"apex_desktop\"]//descendant::span[@data-a-size=\"xl\"]")
 	private WebElement price;
 	@FindBy(xpath="//*[@id='submit.add-to-cart']/child::span")private WebElement addToCartbtn;
 	@FindBy(xpath="//input[@class=\"a-button-input\" and @aria-labelledby=\"attach-sidesheet-view-cart-button-announce\"]")private WebElement Cartbtn;
@@ -35,7 +35,7 @@ public class AmazonProductPage1
 	
 	 public void EnterSearchTextbox1() throws EncryptedDocumentException, IOException
      {
-		 searchtextbox1.sendKeys(UtilityClass.readDataFromExcel(0, 0));
+		 searchtextbox1.sendKeys("Samsung m34");
      }
 	 
 	 public void clickOnsubmitbtn1()
@@ -51,7 +51,7 @@ public class AmazonProductPage1
      
 	   public void clickOnSamsungMobile1(WebDriver driver)
 	     {
-	    	 UtilityClass.JavaScriptExcutor(driver,samsungmobile1);
+	    	UtilityClass.JavaScriptExcutor(driver,samsungmobile1);
 	    	 samsungmobile1.click();
 	     }
 	   

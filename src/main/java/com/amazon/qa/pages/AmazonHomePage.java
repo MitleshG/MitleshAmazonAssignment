@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AmazonHomePage 
 {
+	WebDriver driver;
 	@FindBy(xpath="//span[@id='nav-link-accountList-nav-line-1']")private WebElement signInbutton1;
 	@FindBy(xpath="//div[@id='nav-al-signin']//descendant::span")private WebElement signInbutton2;
 
@@ -24,6 +25,7 @@ public class AmazonHomePage
 	
 	public AmazonHomePage(WebDriver driver)
 	{
+		//this.ldriver=rdriver;
 		PageFactory.initElements(driver,this);
 	}
      

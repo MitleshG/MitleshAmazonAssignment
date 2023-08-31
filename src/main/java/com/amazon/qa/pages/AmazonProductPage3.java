@@ -24,6 +24,12 @@ public class AmazonProductPage3
 	@FindBy(xpath="//span[@class=\"a-button-text a-declarative\"]")private WebElement btn_qnty3;
 	@FindBy(xpath="//span[@class=\"a-truncate-full a-offscreen\"]//following-sibling::span")private WebElement txt_name3;
 	@FindBy(xpath="//div[@class=\"sc-badge-price-to-pay\"]//descendant::span")private WebElement txt_price3;
+	@FindBy(xpath="(//input[@data-action=\"delete\"])[3]")private WebElement Del_phone3;
+	@FindBy(xpath="(//input[@data-action=\"delete\"])[2]")private WebElement Del_phone2;
+	@FindBy(xpath="(//input[@data-action=\"delete\"])[1]")private WebElement Del_phone1;
+
+
+	
 
 	public AmazonProductPage3(WebDriver driver)
 	{
@@ -83,4 +89,13 @@ public class AmazonProductPage3
 	    	  
 	    	  return act;
 	      }
+	   public void emptyCart() throws InterruptedException
+	   {
+		   Del_phone3.click();
+		   Thread.sleep(1000);
+		   Del_phone2.click();
+		   Thread.sleep(1000);
+		   Del_phone1.click();
+		   Thread.sleep(1000);
+	   }
 }

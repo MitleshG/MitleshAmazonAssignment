@@ -3,6 +3,7 @@ package com.amazon.qa.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.Set;
@@ -67,21 +68,21 @@ public class UtilityClass
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			js.executeScript("window.scrollBy(0,1000)", "");
 		}
-		public static void windowHandles(WebDriver driver)
+		public static void windowHandles(WebDriver driver,int n)
 		{
-//			Set<String> ids=driver.getWindowHandles();
-//			ArrayList<String> id=new ArrayList<String>(ids);
-//			   
-//			   String child=id.get(1);
-//			   driver.switchTo().window(child);	
+			Set<String> ids=driver.getWindowHandles();
+			ArrayList<String> id=new ArrayList<String>(ids);
+			   
+			   String child=id.get(n);
+			   driver.switchTo().window(child);	
 			
-			      Set<String> wnd = driver.getWindowHandles();
-			    
-			      Iterator<String> i = wnd.iterator();
-			      String prntw = i.next();
-			      String popwnd = i.next();
-			      
-			      driver.switchTo().window(popwnd);
+//			      Set<String> wnd = driver.getWindowHandles();
+//			    
+//			      Iterator<String> i = wnd.iterator();
+//			      String prntw = i.next();
+//			      String popwnd = i.next();
+//			      
+//			      driver.switchTo().window(popwnd);
 		}
 	
 }

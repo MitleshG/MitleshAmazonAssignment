@@ -1,23 +1,36 @@
 package com.amazon.qa.base;
 
-import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Reporter;
+import org.testng.annotations.Parameters;
 
 public class BaseClass 
 {
-	public WebDriver driver;
-	public void openApplication() throws InterruptedException
-	{         driver=new ChromeDriver();
-	          driver.manage().window().maximize();     
-	          driver.manage().window().maximize();    
-  	          driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	          driver.get("https://www.amazon.in/");
+//	public WebDriver driver;
+	
+	
+	public void openApplication(WebDriver driver) throws InterruptedException
+	{  
+
+//		        if (browser.equalsIgnoreCase("edge")) {
+//		            driver=new EdgeDriver();
+//		        } else if (browser.equalsIgnoreCase("firefox")) {
+//		            driver=new FirefoxDriver();
+//		        }
+		         
+		    
+		
+		//driver=new ChromeDriver();
+		driver.manage().window().maximize();  
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(35));
+        driver.get("https://www.amazon.in/");
+	          
 }
+	
 }
 
 
